@@ -96,6 +96,7 @@ const App = () => {
     } else {
       setFavoriteProducts([...favoriteProducts, product]);
     }
+    console.log(favoriteProducts);
   };
 
   // logs for data
@@ -134,7 +135,7 @@ const App = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {filteredProducts.map((product) => (
-            <Grid xs={2} sm={4} md={4} key={product.code}>
+            <Grid xs={2} sm={4} md={4}>
               <BasicCard
                 code={product.code}
                 brand={product.brand}
