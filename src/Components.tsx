@@ -33,7 +33,6 @@ export function ProductList({
   setProducts: React.Dispatch<React.SetStateAction<any[]>>;
 }) {
   const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
     async function fetchData() {
       try {
