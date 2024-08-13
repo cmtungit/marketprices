@@ -33,7 +33,6 @@ export function ProductList({
   setProducts: React.Dispatch<React.SetStateAction<any[]>>;
 }) {
   const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -130,7 +129,6 @@ export const fetchProductImage = async (
   productName: string
 ): Promise<string> => {
   const searchQuery = encodeURIComponent(productName);
-  // console.log(searchQuery);
   const response = await fetch(
     `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&cx=373ff5a0ef6534bc7&key=AIzaSyBXFaaHIeTJJ6UkBaoHGXta0nz0BBV9JVE&num=1&searchType=image`
   );
