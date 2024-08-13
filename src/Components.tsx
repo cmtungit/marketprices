@@ -28,11 +28,9 @@ async function fetchAPI(): Promise<any> {
 export function ProductList({
   products,
   setProducts,
-}: // setFilteredProducts,
-{
+}: {
   products: any[];
   setProducts: React.Dispatch<React.SetStateAction<any[]>>;
-  // setFilteredProducts: React.Dispatch<React.SetStateAction<any[]>>;
 }) {
   const [error, setError] = useState<string | null>(null);
 
