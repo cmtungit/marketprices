@@ -69,6 +69,8 @@ export const Searchfield: React.FC<SearchfieldProps> = ({
   );
 };
 
+
+
 export const BasicCard: React.FC<ProductProps> = ({
   code,
   brand,

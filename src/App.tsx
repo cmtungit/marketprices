@@ -57,27 +57,31 @@ const App = () => {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductProps[]>([]);
   const [favoriteProducts, setFavoriteProducts] = useState<ProductProps[]>([]);
-
+  // listening input
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setUserInput(event.currentTarget.value);
   }
-
+  // search function
   const handleSearch = async (
     originalProducts: ProductProps[],
-    searchValue: string
+    userInput: string
   ) => {
-    const filtered = originalProducts
-      .filter((item) => item.name["zh-Hant"].includes(searchValue))
-      .filter((product) => product.prices.length !== 0);
-
-    // Fetch the images for each filtered product
-    const productsWithImages = await Promise.all(
-      filtered.map(async (product) => {
-        const imageUrl = await fetchProductImage(product.name["zh-Hant"]);
-        return { ...product, imageUrl };
-      })
+    const filtered = originalProducts.filter(
+      (item) =>
+        (item.brand["zh-Hant"].includes(userInput.trim()) ||
+          item.name["zh-Hant"].includes(userInput.trim()) ||
+          item.brand["en"].toLowerCase().includes(userInput.trim()) ||
+          item.name["en"].toLowerCase().includes(userInput.trim())) &&
+        item.prices.length !== 0
     );
-    setFilteredProducts(productsWithImages);
+    // Fetch the images for each filtered product
+    // const productsWithImages = await Promise.all(
+    //   filtered.map(async (product) => {
+    //     const imageUrl = await fetchProductImage(product.name["zh-Hant"]);
+    //     return { ...product, imageUrl };
+    //   })
+    // );
+    setFilteredProducts(filtered);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
