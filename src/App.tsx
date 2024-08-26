@@ -75,13 +75,13 @@ const App = () => {
         item.prices.length !== 0
     );
     // Fetch the images for each filtered product
-    // const productsWithImages = await Promise.all(
-    //   filtered.map(async (product) => {
-    //     const imageUrl = await fetchProductImage(product.name["zh-Hant"]);
-    //     return { ...product, imageUrl };
-    //   })
-    // );
-    setFilteredProducts(filtered);
+    const productsWithImages = await Promise.all(
+      filtered.map(async (product) => {
+        const imageUrl = await fetchProductImage(product.name["zh-Hant"]);
+        return { ...product, imageUrl };
+      })
+    );
+    setFilteredProducts(productsWithImages);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

@@ -107,7 +107,7 @@ export const BasicCard: React.FC<ProductProps> = ({
           </Typography>
         ))}
       </CardContent>
-      <Checkbox
+      {/* <Checkbox
         icon={<FavoriteBorder />}
         checkedIcon={<Favorite color="error" />}
         checked={isFavorite}
@@ -123,7 +123,7 @@ export const BasicCard: React.FC<ProductProps> = ({
             handleFavorite,
           })
         }
-      />
+      /> */}
     </Card>
   );
 };
